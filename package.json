@@ -1,0 +1,49 @@
+{
+	"name": "remark-source-code",
+	"version": "0.1.0",
+	"description": "Import code from local files or remote URLs into your markdown",
+	"engines": {
+		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+	},
+	"type": "module",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"files": [
+		"index.d.ts",
+		"index.js"
+	],
+	"sideEffects": false,
+	"scripts": {
+		"build": "tsc",
+		"test": "tap -Rspec --cov test.js",
+		"report": "nyc report --reporter=text-lcov | coveralls",
+		"prepare": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/anubra266/remark-source-code.git"
+	},
+	"keywords": [
+		"mdast",
+		"remark",
+		"plugin",
+		"mdast-plugin",
+		"remark-plugin",
+		"source-code",
+		"code-import"
+	],
+	"author": "anubra266",
+	"license": "MIT",
+	"dependencies": {
+		"node-fetch": "^3.3.2",
+		"unist-util-visit": "^5.0.0"
+	},
+	"devDependencies": {
+		"@types/mdast": "^4.0.4",
+		"@types/node": "^22.10.1",
+		"coveralls-next": "^4.1.2",
+		"remark": "^14.0.1",
+		"tap": "^16.1.0",
+		"typescript": "^5.7.2"
+	}
+}
