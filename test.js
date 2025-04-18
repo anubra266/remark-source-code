@@ -49,15 +49,25 @@ tap.test('remark-source-code', async (t) => {
 		t.match(file.value, /title="Test File"/, 'should preserve title attribute');
 	});
 
-	t.test('should handle remote URLs', async (t) => {
+	t.test('should import code from remote URLs', async (t) => {
 		const file = await remark().use(remarkImportCode).process(`
-\`\`\`js src="https://example.com/test.js"
+\`\`\`js src="https://raw.githubusercontent.com/anubra266/remark-source-code/refs/heads/main/fixtures/test.js"
+\`\`\`
+		`);
+
+		const expected = await readFile(join(fixtures, 'test.js'), 'utf-8');
+		t.equal(extractCodeContent(file.value), expected.trim());
+	});
+
+	t.test('should handle remote URL errors', async (t) => {
+		const file = await remark().use(remarkImportCode).process(`
+\`\`\`js src="https://example.com/nonexistent.js"
 \`\`\`
 		`);
 
 		t.match(
 			extractCodeContent(file.value),
-			/Error loading remote code from https:\/\/example\.com\/test\.js/,
+			/Error loading remote code from https:\/\/example\.com\/nonexistent\.js/,
 			'should include error message for failed fetch'
 		);
 	});
