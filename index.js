@@ -9,16 +9,16 @@ import fs from 'node:fs/promises';
  */
 
 /**
- * @typedef {Object} RemarkImportCodeOptions
+ * @typedef {Object} RemarkSourceCodeOptions
  * @property {string} [baseDir] - Base directory for resolving local file paths
  */
 
 /**
  * Plugin to import code from local files or remote URLs
- * @param {RemarkImportCodeOptions} [options={}]
+ * @param {RemarkSourceCodeOptions} [options={}]
  * @returns {(tree: Root) => Promise<void>}
  */
-export function remarkImportCode(options = {}) {
+export function remarkSourceCode(options = {}) {
 	const baseDir = options.baseDir || process.cwd();
 
 	return async function transformer(tree) {
