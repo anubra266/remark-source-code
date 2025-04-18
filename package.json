@@ -1,6 +1,6 @@
 {
 	"name": "remark-source-code",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Import code from local files or remote URLs into your markdown",
 	"engines": {
 		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
