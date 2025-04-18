@@ -21,7 +21,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/anubra266/remark-source-code.git"
+		"url": "git+https://github.com/anubra266/remark-source-code.git"
 	},
 	"keywords": [
 		"mdast",
